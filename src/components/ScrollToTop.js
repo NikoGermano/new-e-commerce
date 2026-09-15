@@ -1,10 +1,11 @@
 import { useEffect } from "react";
-import { useLocation } from "react-router-dom"; // collection of all endpoint in the adress
-//uselocation
-export default function ScroolToTop() {
-  const {pathname} = useLocation(); //destructuring the whole page to get only the pathname
+import { useLocation } from "react-router-dom";
+
+// Scroll to the top on page changes, but not when only the query string changes (filters, sort).
+export default function ScrollToTop() {
+  const { pathname } = useLocation();
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [pathname]);
-
+  return null;
 }

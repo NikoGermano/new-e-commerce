@@ -1,104 +1,185 @@
-.main-container {
-  margin: 0 auto;
-  max-width: 1400px;
-  height: auto;
-  padding: 0px;
-  background-color: rgb(242, 242, 242);
-}
-.grid {
+.hero {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 20px;
-  padding: 0;
-}
-.img-filler {
-  width: 100%;
-  margin-bottom: -5px;
-  padding: 0;
-}
-.img-header {
-  width: 100%;
-  height: 192px;
-  background-image: url("https://i.ebayimg.com/images/g/DSIAAOSwWu1f28PK/s-l1600.webp");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-}
-.img-header .txt {
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr);
+  align-items: center;
+  gap: 32px;
+  min-height: 320px;
+  margin-top: 8px;
+  padding: 40px 48px;
+  border-radius: var(--radius-lg);
+  background: radial-gradient(circle at 85% 20%, #5b85ff 0%, transparent 45%),
+    linear-gradient(120deg, #1d3fbf 0%, #3665f3 55%, #6a8dff 100%);
   color: #fff;
-  padding: 3%;
+  overflow: hidden;
 }
-.img-header p {
-  font-weight: 500;
+
+.hero__eyebrow {
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  opacity: 0.85;
 }
-.card {
-  height: auto;
-  border-radius: 10px;
+
+.hero__title {
+  margin: 8px 0 12px;
+  font-size: 44px;
+  font-weight: 800;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
 }
-p {
-  font-weight: 400;
+
+.hero__text {
+  max-width: 420px;
+  margin-bottom: 24px;
+  font-size: 17px;
+  opacity: 0.92;
 }
-.img-container {
-  height: 200px;
-  background-color: #fff;
-  border-radius: 10px;
+
+.hero__images {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-.img-container img {
+
+.hero__image {
+  display: grid;
+  place-items: center;
+  width: 190px;
+  height: 190px;
+  margin-left: -24px;
+  padding: 32px;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: var(--shadow-lg);
+}
+
+.hero__image:nth-child(2) {
+  z-index: 1;
+  width: 230px;
+  height: 230px;
+}
+
+.hero__image img {
   width: 100%;
   height: 100%;
   object-fit: contain;
-  transition: 0.5s;
-  border-radius: 10px;
 }
 
-/* ---------------------------------------responsive for mobile------------------------------------*/
+.perks {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px 40px;
+  padding: 16px 0;
+  border-bottom: 1px solid var(--color-border);
+  font-size: 14px;
+  font-weight: 600;
+}
 
-@media only screen and (max-width: 600px) {
-  .main-container {
-    margin: 0 auto;
-    width: 96%;
-    height: auto;
-    padding: 0px 0px;
-    background-color: rgb(242, 242, 242);
-  }
-  #grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-    gap: 20px;
-    padding: 1%;
-  }
-  .img-filler {
-    width: 100%;
-    height: 600px;
-    background-image: url("/public/img/pic\ ebaty.png");
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    margin-bottom: initial;
+.perks li {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
 
+.perks svg {
+  font-size: 18px;
+  color: var(--color-primary);
+}
+
+.category-tiles {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.category-tile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+}
+
+.category-tile__image {
+  display: block;
+  width: min(100%, 180px);
+  aspect-ratio: 1;
+  padding: 36px;
+  border-radius: 50%;
+  background: var(--color-surface-strong);
+  overflow: hidden; /* keeps the circle round regardless of image size */
+}
+
+.category-tile__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  mix-blend-mode: multiply;
+  transition: transform 0.25s ease;
+}
+
+.category-tile:hover .category-tile__image img {
+  transform: scale(1.08);
+}
+
+.category-tile__label {
+  font-size: 15px;
+  font-weight: 700;
+  text-align: center;
+}
+
+.category-tile:hover .category-tile__label {
+  text-decoration: underline;
+}
+
+@media (max-width: 900px) {
+  .hero {
+    grid-template-columns: 1fr;
+    padding: 32px 24px;
+    text-align: left;
   }
-  .img-filler img {
-    display: none;
+
+  .hero__images {
+    order: -1;
+    justify-content: flex-start;
+    padding-left: 24px;
   }
-  .img-header {
-    width: 100%;
-    height: 192px;
-    background-image: url("https://i.ebayimg.com/images/g/DSIAAOSwWu1f28PK/s-l1600.webp");
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
+
+  .hero__image {
+    width: 110px;
+    height: 110px;
+    padding: 18px;
   }
-  .img-header p,
-  h2 {
-    font-weight: 500;
-    text-shadow: rgb(0, 0, 0) 1px 0 10px;
+
+  .hero__image:nth-child(2) {
+    width: 130px;
+    height: 130px;
   }
-  #tagline {
-    margin-top: 30px;
-    font-size: 25px;
-    text-shadow: rgb(0, 0, 0) 1px 0 10px;
+
+  .hero__title {
+    font-size: 32px;
   }
-  .img-container img{
-    border-radius: 20px;
+}
+
+@media (max-width: 640px) {
+  .perks {
+    justify-content: flex-start;
+    gap: 8px 20px;
+    font-size: 13px;
+  }
+
+  .category-tiles {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px 12px;
+  }
+
+  .category-tile__image {
+    padding: 28px;
+  }
+
+  .category-tile__label {
+    font-size: 14px;
   }
 }

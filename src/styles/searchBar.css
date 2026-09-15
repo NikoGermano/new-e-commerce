@@ -1,0 +1,146 @@
+.search {
+  display: flex;
+  align-items: stretch;
+  gap: 12px;
+}
+
+.search__field {
+  position: relative;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  height: 48px;
+  border: 2px solid var(--color-text);
+  border-radius: var(--radius-pill);
+  background: var(--color-bg);
+}
+
+.search__field:focus-within {
+  border-color: var(--color-primary);
+}
+
+.search__icon {
+  flex-shrink: 0;
+  margin-left: 18px;
+  font-size: 18px;
+  color: var(--color-text-muted);
+}
+
+.search__input {
+  flex: 1;
+  min-width: 0;
+  height: 100%;
+  padding: 0 12px;
+  border: 0;
+  background: transparent;
+  font-size: 16px;
+}
+
+.search__input:focus {
+  outline: none;
+}
+
+.search__category {
+  height: 32px;
+  max-width: 180px;
+  margin-right: 8px;
+  padding: 0 8px;
+  border: 0;
+  border-left: 1px solid var(--color-border-strong);
+  border-radius: 0;
+  background: transparent;
+  font-size: 13px;
+  color: var(--color-text-muted);
+}
+
+.search__category:hover {
+  color: var(--color-text);
+}
+
+.search__submit {
+  height: 48px;
+  min-width: 140px;
+  font-size: 16px;
+}
+
+.search__submit-icon {
+  display: none;
+}
+
+.search__suggestions {
+  position: absolute;
+  top: calc(100% + 6px);
+  left: 0;
+  right: 0;
+  z-index: 50;
+  padding: 8px 0;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-bg);
+  box-shadow: var(--shadow-lg);
+}
+
+.search__suggestion {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 16px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.search__suggestion[aria-selected="true"] {
+  background: var(--color-surface-strong);
+}
+
+.search__suggestion img {
+  flex-shrink: 0;
+  width: 36px;
+  height: 36px;
+  object-fit: contain;
+}
+
+.search__suggestion span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.search__suggestion strong {
+  font-weight: 700;
+}
+
+@media (max-width: 640px) {
+  .search {
+    gap: 8px;
+  }
+
+  .search__field {
+    height: 44px;
+  }
+
+  .search__category {
+    display: none;
+  }
+
+  .search__submit {
+    width: 44px;
+    height: 44px;
+    min-width: 0;
+    min-height: 0;
+    padding: 0;
+  }
+
+  .search__submit-icon {
+    display: block;
+    font-size: 20px;
+  }
+
+  .search__submit-label {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+  }
+}
